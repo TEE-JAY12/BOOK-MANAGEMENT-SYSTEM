@@ -72,14 +72,19 @@ public class BookController {
 
 
             result = bookService.getBookDetail(id);
+            if (result.getId() != null){
 
+                responses.setResponseMessage(ResponseCodes.SUCCESS_STATUS);
+                responses.setResponseCode(HttpServletResponse.SC_OK);
+                responses.setStatusCode(ResponseCodes.SUCCESS);
+                responses.setData(result);
+                return new ResponseEntity<>(responses, HttpStatus.OK);
+            }
+            responses.setResponseMessage(ResponseCodes.NO_RECORD_FOUND);
+            responses.setResponseCode(HttpServletResponse.SC_NOT_FOUND);
+            responses.setStatusCode(ResponseCodes.NO_RECORD_STATUS);
 
-            responses.setResponseMessage(ResponseCodes.SUCCESS_STATUS);
-            responses.setResponseCode(HttpServletResponse.SC_OK);
-            responses.setStatusCode(ResponseCodes.SUCCESS);
-
-            responses.setData(result);
-            return new ResponseEntity<>(responses, HttpStatus.OK);
+            return new ResponseEntity<>(responses, HttpStatus.NOT_FOUND);
         }
         catch (Exception ex)
         {
