@@ -2,7 +2,7 @@
 
 This is a Springboot project  
 
-This is backend application for Book Project
+This is backend application for Book Management System
 
 ## Prerequirements
 
