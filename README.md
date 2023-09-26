@@ -46,6 +46,7 @@ The REST API for the Book app is described below.
 
 ### Request
 `POST /savebook/`
+
     | POST | http://localhost:8080/book/savebook | Add a book |
 
 ### REQUEST
@@ -105,6 +106,7 @@ The REST API for the Book app is described below.
 
 ### Request
 `GET /getbook/{id}`
+
     | GET | http://localhost:8080/book/getbook/1 | Get a book |
 
 
@@ -127,6 +129,7 @@ The REST API for the Book app is described below.
 
 ### Request
 `GET /getAllBooks?pageNumber=1&pageSize=3`
+
     | GET | http://localhost:8080/book/getAllBooks?pageNumber=1&pageSize=3 | Get List of book |
 
 
