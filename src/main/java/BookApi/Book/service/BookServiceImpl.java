@@ -113,10 +113,27 @@ public class BookServiceImpl implements BookService{
         BookDto bookdto = new BookDto();
         try{
 
-            Optional<Book> transaction = bookRepository.findById(Id);
+            Optional<Book> book = bookRepository.findById(Id);
 
-            if(transaction != null){
-                bookdto = fromMtmEntityToDto(transaction.get());
+            if(book != null){
+                bookdto = fromMtmEntityToDto(book.get());
+            }
+        }catch (Exception e) {
+            LoggingUtil.DebugInfo(Arrays.toString(e.getStackTrace()).replaceAll(",", "\n"));
+        }
+        return bookdto;
+    }
+
+    @Override
+    public BookDto deleteBook(Long Id){
+        BookDto bookdto = new BookDto();
+        try{
+
+            Optional<Book> book = bookRepository.findById(Id);
+
+            if(book != null){
+                bookdto = fromMtmEntityToDto(book.get());
+                bookRepository.deleteById(Id);
             }
         }catch (Exception e) {
             LoggingUtil.DebugInfo(Arrays.toString(e.getStackTrace()).replaceAll(",", "\n"));

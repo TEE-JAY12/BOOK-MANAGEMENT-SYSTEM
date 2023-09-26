@@ -253,6 +253,29 @@ The REST API for the Book app is described below.
         }
     }
 
+## Delete a Book 
+
+### Request
+`DELETE /getbook/{id}`
+
+    | DELETE | http://localhost:8080/book/getbook/1 | Delete a book |
+
+
+### Response Body
+    {
+        "responseCode": 200,
+        "responseMessage": "DELETED",
+        "statusCode": "000",
+        "data": {
+            "id": 1,
+            "title": "Clean Code",
+            "author": " Arsernal",
+            "publicationYear": 2022,
+            "createdDate": "2023-09-26T14:38:16.274+00:00",
+            "modifiedDate": null
+        }
+    }
+
 
 **Thank for going through the application**
 

@@ -12,5 +12,6 @@ public interface BookService {
     Page<BookDto> getBookPaged(int pageNumber, int pageSize, String sortBy) throws Exception;
     Page<BookDto> getBookByTitleOrAuthor(int pageNumber, int pageSize, String sortBy, String searchTerm) throws Exception;
 
+    BookDto deleteBook(Long Id);
 
 }

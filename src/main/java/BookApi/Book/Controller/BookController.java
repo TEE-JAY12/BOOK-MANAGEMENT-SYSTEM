@@ -121,6 +121,37 @@ public class BookController {
         }
     }
 
+    @DeleteMapping("/getbook/{id}")
+    public ResponseEntity<?> deleteBook(HttpServletRequest request, HttpServletResponse response,
+                                            @PathVariable("id") Long id ) {
+        BookDto result = null;
+        BookResponse<BookDto> responses = new BookResponse<>();
+        try {
+
+
+            result = bookService.deleteBook(id);
+            if (result.getId() != null){
+
+                responses.setResponseMessage(ResponseCodes.DELETE_STATUS);
+                responses.setResponseCode(HttpServletResponse.SC_OK);
+                responses.setStatusCode(ResponseCodes.SUCCESS);
+                responses.setData(result);
+                return new ResponseEntity<>(responses, HttpStatus.OK);
+            }
+            responses.setResponseMessage(ResponseCodes.NO_RECORD_FOUND);
+            responses.setResponseCode(HttpServletResponse.SC_NOT_FOUND);
+            responses.setStatusCode(ResponseCodes.NO_RECORD_STATUS);
+
+            return new ResponseEntity<>(responses, HttpStatus.NOT_FOUND);
+        }
+        catch (Exception ex)
+        {
+            LoggingUtil.DebugInfo(ex.getMessage());
+            LoggingUtil.ExceptionInfo(ex);
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
 
 
