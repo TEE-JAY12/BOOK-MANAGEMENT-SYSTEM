@@ -23,19 +23,10 @@ The base url for the application is  http://localhost:8080/. The List of Api inc
 
 ## To set up the application, please follow these guidelines:
 
-1. Clone the repository using the code provided.
-2. Run the application.
-
-
-
-## Usage Guidelines
-
-1. To use the application, please follow these guidelines:
-
-2. Start by cloning the repository using the code below.
-
-3. Add your database configurations to the application.properties file.
-Run the application. It should run by default on port 8080.
+1. Clone the repository  at https://github.com/TEE-JAY12/BOOK-MANAGEMENT-SYSTEM.git
+2. Run the application.It should run by default on port 8080.
+3. To access the H2 database use this link http://localhost:8080/h2-console/login . The Jdbc url is jdbc:h2:mem:bookstoreh2:mem:bookstore
+4. Test the application with the required body using Postman.
 
 
 # REST API
